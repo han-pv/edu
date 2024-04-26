@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Course;
+use App\Models\Group;
+use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,14 +17,26 @@ class StudentFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
+        $teacher = Teacher::with('course.category')->inRandomOrder()->first();
+
+        $group = $teacher->group_id;
+
+        $course = $teacher->course_id;
+        $category = $teacher->course->category_id;
+
+
+
         return [
-            'name' => fake()->name(),
-            'surname' => fake()->unique()->surname(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'category_id' => $category,
+            'course_id' => $course,
+//            'lesson_id' => $lesson->id,
+            'group_id' => $group,
+            'teacher_id' => $teacher->id,
+            'name' =>  fake()->firstName,
+            'surname' => fake()->lastName,
+            'grade' => fake()->numberBetween(1, 12),
         ];
     }
 }

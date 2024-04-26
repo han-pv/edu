@@ -21,7 +21,7 @@ class CourseSeeder extends Seeder
             2 => [
                 'Big Data Fundamentals',
                 'Data Analysis and Visualization',
-                'Big Data Platforms (Spark, Hadoop)',
+                'Big Data Platforms',
                 'Statistics',
             ],
             3 => [

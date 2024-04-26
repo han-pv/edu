@@ -21,10 +21,10 @@ class Teacher extends Model
         return $this->belongsTo(Course::class);
     }
 
-    public function lessons()
-    {
-        return $this->hasMany(Lesson::class);
-    }
+//    public function lessons()
+//    {
+//        return $this->hasMany(Lesson::class);
+//    }
 
     public function groups()
     {
