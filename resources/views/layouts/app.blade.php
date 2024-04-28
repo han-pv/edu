@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>@yield('title') - AtaCar</title>
+        <title>@yield('title') IT academy</title>
 {{--        <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">--}}
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/bootstrap-icons.min.css') }}" rel="stylesheet">

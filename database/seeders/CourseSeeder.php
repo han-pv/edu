@@ -58,10 +58,15 @@ class CourseSeeder extends Seeder
 
         foreach ($objs as $categoryId => $courseNames) {
             foreach ($courseNames as $courseName) {
-                Course::create([
-                    'name' => $courseName,
+//                Course::create([
+//                    'name' => $courseName,
+//                    'category_id' => $categoryId,
+//                ]);
+                Course::create(array(
                     'category_id' => $categoryId,
-                ]);
+                    'name' => $courseName,
+                    'description' => fake()->paragraph(rand(2, 4)),
+                ));
             }
         }
     }

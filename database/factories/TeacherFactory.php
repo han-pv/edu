@@ -25,7 +25,7 @@ class TeacherFactory extends Factory
         $group = Group::with('course.category')->inRandomOrder()->first();
         $course = $group->course_id;
         $category = $group->course->category_id;
-//        $lesson = $course->lesson_id;
+//        $lesson = $courses->lesson_id;
 
         return [
             'category_id' => $category,

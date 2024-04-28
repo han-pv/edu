@@ -17,8 +17,19 @@ class Student extends Model
     public $timestamps = false;
 
 
+//    public function Category()
+//    {
+//        return $this->belongsTo(Category::class);
+//    }
+
     public function Group()
     {
         return $this->belongsTo(Group::class);
     }
+//    public function Course()
+//    {
+//        return $this->belongsTo(Course::class);
+//    }
+
+
 }
