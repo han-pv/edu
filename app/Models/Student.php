@@ -37,9 +37,9 @@ class Student extends Model
         return $this->belongsTo(Group::class);
     }
 
-    public function Lesson()
+    public function lessons()
     {
-        return $this->belongsTo(Lesson::class);
+        return $this->belongsToMany(Lesson::class);
     }
     public function Teacher()
     {

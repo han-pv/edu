@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="container-xl">
-        <div class="row my-5 g-4">
+        <div class="row my-5 g-5">
             @forelse($objs as $obj)
             <div class="col-12 col-md-6">
                 <div class="bg-dark bg-opacity-10 border rounded-3 h-100 p-4">
@@ -17,6 +17,9 @@
                     <p class="h6 opacity-75 my-3">
                         {{$obj->description}}
                     </p>
+                    <div class="h6 mt-3">
+                        Lessons:
+                    </div>
                     <ul class="h6 small">
                         @foreach($obj->lessons as $lesson)
                         <li>

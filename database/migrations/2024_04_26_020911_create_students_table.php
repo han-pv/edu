@@ -23,7 +23,9 @@ return new class extends Migration
             $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
             $table->string('name');
             $table->string('surname');
-            $table->string('grade');
+            $table->string('gender');
+            $table->string('age');
+            $table->string('gradeLevel');
         });
     }
 

@@ -28,6 +28,6 @@ class Lesson extends Model
 
     public function students()
     {
-        return $this->hasmany(Student::class);
+        return $this->belongsToMany(Student::class);
     }
 }

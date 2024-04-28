@@ -26,7 +26,12 @@ class StudentFactory extends Factory
         $lesson = $teacher->lesson_id;
         $category = $teacher->course->category_id;
 
+        $gradeLevel = $this->faker->randomElement([5, 6, 7, 8, 9, 10]);
 
+
+        if ($gradeLevel === 5 && $this->faker->boolean(20)) {
+            $gradeLevel = $this->faker->numberBetween(1, 4);
+        }
 
 
         return [
@@ -37,7 +42,9 @@ class StudentFactory extends Factory
             'teacher_id' => $teacher->id,
             'name' =>  fake()->firstName,
             'surname' => fake()->lastName,
-            'grade' => fake()->numberBetween(1, 12),
+            'gender' => fake()->randomElement(['Male', 'Female']),
+            'age' => fake()->numberBetween(16, 25),
+            'gradeLevel' => $gradeLevel,
         ];
     }
 }
