@@ -12,6 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
+
 //        $students = Student::with('group')->get();
 //        return $categories;
 //        return view('home.index', compact('students'));

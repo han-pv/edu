@@ -19,7 +19,7 @@ class StudentController extends Controller
             'group' => 'nullable|integer|min:1',
             'lesson' => 'nullable|integer|min:1',
             'teacher' => 'nullable|integer|min:1',
-            'gender' => 'nullable|string|max:10',
+            'gender' => 'nullable|string|max:30',
             'age' => 'nullable|integer|min:1',
             'gradeLevel' => 'nullable|integer|min:1',
         ]);
@@ -33,6 +33,7 @@ class StudentController extends Controller
         $f_age = $request->has('brand') ? $request->age : null;
         $f_gradeLevel = $request->has('gradeLevel') ? $request->gradeLevel : null;
 
+//        return $f_course;
 
 //        $gender = isset($f_gender) ? Gender::where('slug', $f_gender)->firstOrFail() : null;
 
@@ -82,10 +83,9 @@ class StudentController extends Controller
             ->with('category', 'course', 'teacher')
             ->paginate(40)
             ->withQueryString();
-//        return $objs->all();
+//        return $objs;
 
         $categories = Category::withCount('students')
-            ->orderBy('name')
             ->get();
         $courses = Course::withCount('students')
             ->orderBy('name')
@@ -126,6 +126,10 @@ class StudentController extends Controller
                 'courses' => $courses,
                 'groups' => $groups,
                 'teachers' => $teachers,
+                'f_category' => $f_category,
+                'f_course' => $f_course,
+                'f_group' => $f_group,
+                'f_teacher' => $f_teacher,
                 'f_gender' => $f_gender,
                 'f_age' => $f_age,
                 'f_gradeLevel' => $f_gradeLevel,
@@ -144,7 +148,7 @@ class StudentController extends Controller
 
     public function show($id)
     {
-        $obj = Course::findOrFail($id);
+        $obj = Student::findOrFail($id);
 //        return $obj;
         return view('courses.show')
             ->with([
