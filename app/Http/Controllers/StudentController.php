@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Course;
 use App\Models\Group;
 use App\Models\Student;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -80,16 +82,53 @@ class StudentController extends Controller
             ->with('category', 'course', 'teacher')
             ->paginate(40)
             ->withQueryString();
-
 //        return $objs->all();
 
+        $categories = Category::withCount('students')
+            ->orderBy('name')
+            ->get();
+        $courses = Course::withCount('students')
+            ->orderBy('name')
+            ->get();
+        $groups = Group::withCount('students')
+            ->orderBy('name')
+            ->get();
+        $teachers = Teacher::withCount('students')
+            ->orderBy('name')
+            ->get();
+
+//        return $teachers;
+
+
+//        $lessons = Course::withCount('students')
+//            ->orderBy('name')
+//            ->get();
+
+//        $brands = Brand::with('brandModels')
+//            ->withCount('cars')
+//            ->orderBy('name')
+//            ->get();
+//        $colors = Color::withCount('cars')
+//            ->orderBy('name')
+//            ->get();
+//        $years = Year::withCount('cars')
+//            ->orderBy('name')
+//            ->get();
 //        $categories = Category::with('courses')
 //            ->get();
+//        return $categories;
 //
 //
         return view('students.index')
             ->with([
                 'objs' => $objs,
+                'categories' => $categories,
+                'courses' => $courses,
+                'groups' => $groups,
+                'teachers' => $teachers,
+                'f_gender' => $f_gender,
+                'f_age' => $f_age,
+                'f_gradeLevel' => $f_gradeLevel,
             ]);
 //        }
 //
