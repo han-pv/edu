@@ -21,17 +21,18 @@ class StudentFactory extends Factory
     {
         $teacher = Teacher::with('course.category')->inRandomOrder()->first();
 
-        $group = $teacher->group_id;
-
         $course = $teacher->course_id;
+        $group = $teacher->group_id;
+        $lesson = $teacher->lesson_id;
         $category = $teacher->course->category_id;
+
 
 
 
         return [
             'category_id' => $category,
             'course_id' => $course,
-//            'lesson_id' => $lesson->id,
+            'lesson_id' => $lesson,
             'group_id' => $group,
             'teacher_id' => $teacher->id,
             'name' =>  fake()->firstName,

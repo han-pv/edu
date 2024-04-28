@@ -8,10 +8,10 @@
             BRANDS
         </div>
         <div class="container-xl">
-            <div class="row row-cols-7 g-0">
+            <div class="row row-cols-7 g-4">
                 @foreach($categories as $category)
-                    <div class="col h-100">
-                        <div class="border rounded p-2">
+                    <div class="col">
+                        <div class="border rounded-2 p-2 h-100">
                             <a href="{{ route('courses.index', ['category' => $category->id]) }}">
                                 <div class="h6">
                                     {{ $category->name }}

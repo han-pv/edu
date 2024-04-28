@@ -22,14 +22,28 @@ class Student extends Model
 //        return $this->belongsTo(Category::class);
 //    }
 
+    public function Category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function Course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
     public function Group()
     {
         return $this->belongsTo(Group::class);
     }
-//    public function Course()
-//    {
-//        return $this->belongsTo(Course::class);
-//    }
 
+    public function Lesson()
+    {
+        return $this->belongsTo(Lesson::class);
+    }
+    public function Teacher()
+    {
+        return $this->belongsTo(Teacher::class);
+    }
 
 }

@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Course;
-use App\Models\Lesson;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
-class CourseController extends Controller
+class StudentController extends Controller
 {
     public function index(Request $request)
     {
@@ -22,9 +20,9 @@ class CourseController extends Controller
 //        return $f_category;
 
 
-        $objs = Course::when(isset($f_category), function ($query) use ($f_category) {
-                return $query->where('category_id', $f_category);
-            })->with('Category', 'lessons','groups', 'teachers', 'students')->get();
+        $objs = Student::when(isset($f_category), function ($query) use ($f_category) {
+            return $query->where('category_id', $f_category);
+        })->with('Category', 'lessons','groups', 'teachers', 'students')->get();
 //        $lessons = Lesson::with('Course')
 //            ->orderBy('name')
 //            ->get();

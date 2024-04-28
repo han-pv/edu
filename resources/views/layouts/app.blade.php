@@ -9,7 +9,7 @@
         <link href="{{ asset('css/bootstrap-icons.min.css') }}" rel="stylesheet">
         <script type="text/javascript" src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         </head>
-    <body>
+    <body class="">
         @include('app.nav')
         @include('app.alert')
         @yield('content')

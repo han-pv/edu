@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Student</a>
+                    <a class="nav-link" href="{{ route('students.index', ['student' => $category->id]) }}">Student</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Forum</a>
