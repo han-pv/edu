@@ -3,7 +3,7 @@
     Courses
 @endsection
 @section('content')
-    @section('content')
+
         <div class="bg-dark">
         <div class="container py-4">
             @include('app.filter')
@@ -36,5 +36,5 @@
             </div>
         </div>
         </div>
-    @endsection
+
 @endsection
