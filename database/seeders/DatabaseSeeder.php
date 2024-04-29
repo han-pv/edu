@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Lesson;
 use App\Models\Group;
+use App\Models\Post;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
@@ -34,6 +35,10 @@ class DatabaseSeeder extends Seeder
 
         Student::factory()
             ->count(500)
+            ->create();
+
+        Post::factory()
+            ->count(50)
             ->create();
     }
 }

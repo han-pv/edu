@@ -13,8 +13,6 @@ use function PHPUnit\Framework\isFalse;
  */
 class GroupFactory extends Factory
 {
-//    protected $model = Group::class;
-
     public function definition(): array
     {
         $course = Course::inRandomOrder()->first();
@@ -22,10 +20,8 @@ class GroupFactory extends Factory
         $latter = $faker->randomElements(['A', 'B', 'C', 'D']);
         $sentence = $course->name;
 
-        // Cümlenin kelimelerini al
         $words = explode(' ', $sentence);
 
-        // Baş harfleri topla
         $initials = '';
         foreach ($words as $word) {
             $initials .=  strtoupper(substr($word, 0, 1));
