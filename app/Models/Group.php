@@ -15,6 +15,10 @@ class Group extends Model
 
     public $timestamps = false;
 
+    public static function withSum(string $string)
+    {
+    }
+
 
     public function Course()
     {

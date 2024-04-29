@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Courses
+    Students
 @endsection
 @section('content')
 
@@ -21,7 +21,7 @@
                             @empty
                                 <div class="col-12">
                                     <div class="fs-1 text-center rounded border p-5">
-                                        Car not found :(
+                                        Student not found
                                     </div>
                                 </div>
                             @endforelse

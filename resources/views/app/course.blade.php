@@ -16,6 +16,7 @@
             <a class=" h4 fw-bold ms-2 text-decoration-none" href="{{ route('courses.index', ['category' => $obj->category->id]) }}">
                 {{$obj->name}}
             </a>
+            <div>{{$obj->students_count}}</div>
         </div>
         <p class="h6 opacity-75 my-3">
             {{$obj->description}}

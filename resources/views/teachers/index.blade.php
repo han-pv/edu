@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('title')
-    Courses
+    Techers
 @endsection
 @section('content')
-    K
+    <div class="container-xl">
+
+    </div>
 @endsection
