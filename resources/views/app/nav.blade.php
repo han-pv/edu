@@ -23,7 +23,7 @@
                     <a class="nav-link" href="{{ route('teachers.index') }}">Teacher</a>
                 </li>
                 <li class="nav-item ms-4">
-                    <a class="nav-link" href="#">Forum</a>
+                    <a class="nav-link" href="{{ route('posts.index') }}">Post</a>
                 </li>
             </ul>
         </div>
