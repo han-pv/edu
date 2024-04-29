@@ -33,17 +33,6 @@ class StudentController extends Controller
         $f_age = $request->has('age') ? $request->age : null;
         $f_gradeLevel = $request->has('gradeLevel') ? $request->gradeLevel : null;
 
-//        return $f_course;
-
-//        $gender = isset($f_gender) ? Gender::where('slug', $f_gender)->firstOrFail() : null;
-
-//        $objs = Student::when(isset($f_category), function ($query) use ($f_category) {
-//            return $query->where('category_id', $f_category);
-//        })->with('students')->get();
-//        $lessons = Lesson::with('Course')
-//            ->orderBy('name')
-//            ->get();
-//        return $objs->all();
 
         $objs = Student::when(isset($f_category), function ($query) use ($f_category) {
                 return $query->where('category_id', $f_category);
@@ -83,7 +72,6 @@ class StudentController extends Controller
             ->with('category', 'course', 'teacher')
             ->paginate(40)
             ->withQueryString();
-//        return $f_gradeLevel;
 
         $categories = Category::withCount('students')
             ->get();
@@ -97,28 +85,7 @@ class StudentController extends Controller
             ->orderBy('name')
             ->get();
 
-//        return $teachers;
 
-
-//        $lessons = Course::withCount('students')
-//            ->orderBy('name')
-//            ->get();
-
-//        $brands = Brand::with('brandModels')
-//            ->withCount('cars')
-//            ->orderBy('name')
-//            ->get();
-//        $colors = Color::withCount('cars')
-//            ->orderBy('name')
-//            ->get();
-//        $years = Year::withCount('cars')
-//            ->orderBy('name')
-//            ->get();
-//        $categories = Category::with('courses')
-//            ->get();
-//        return $categories;
-//
-//
         return view('students.index')
             ->with([
                 'objs' => $objs,
@@ -134,16 +101,6 @@ class StudentController extends Controller
                 'f_age' => $f_age,
                 'f_gradeLevel' => $f_gradeLevel,
             ]);
-//        }
-//
-//    public function show($id)
-//    {
-//        $obj = Category::findOrFail($id);
-//
-//        return view('courses.show')
-//            ->with([
-//                'obj' => $obj,
-//            ]);
     }
 
     public function show($id)

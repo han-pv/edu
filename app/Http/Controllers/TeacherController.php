@@ -21,17 +21,12 @@ class TeacherController extends Controller
 
         $groups = Group::with('Course')
             ->get();
-//        return $lessons;
 
-//        $objs = Course::inRandomOrder()
-//            ->with('Category', 'lessons')
-//            ->take(4)
-//            ->get();
 
 
         return view('teachers.index')
             ->with([
-                'categories' => $teachers,
+                'teachers' => $teachers,
                 'lessons' => $lessons,
                 'groups' => $groups,
             ]);

@@ -3,7 +3,7 @@
         <div class="col-2">
             <div class="text-center">
                     <div class="">
-                        <img src="{{ asset('img/student-user.png') }}" alt="" class="img-fluid" style="width: 80px">
+                        <img src="{{ asset('img/user.png') }}" alt="" class="img-fluid" style="width: 80px">
                     </div>
             </div>
         </div>

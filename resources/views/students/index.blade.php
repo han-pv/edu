@@ -11,9 +11,9 @@
         </div>
         <div>
             <div class="container-xl">
-                <div class="row g-4">
-                    <div class="col-md-4 col-xl-3">
-                    </div>
+                <div class="h3 fw-bold text-success my-4">
+                    Students
+                </div>
                     <div class="col-12">
                         <div class="row g-3">
                             @forelse($objs as $obj)
@@ -29,7 +29,5 @@
                     </div>
 {{--                    {{ $objs->links() }}--}}
                 </div>
-            </div>
-        </div>
 
 @endsection
