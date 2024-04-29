@@ -25,6 +25,11 @@ class CourseController extends Controller
         $objs = Course::when(isset($f_category), function ($query) use ($f_category) {
                 return $query->where('category_id', $f_category);
             })->with('Category', 'lessons','groups', 'teachers', 'students')->get();
+
+//        $courses = Course::inRandomOrder()
+//            ->with('Category', 'lessons')
+//            ->take(4)
+//            ->get();
 //        $lessons = Lesson::with('Course')
 //            ->orderBy('name')
 //            ->get();
@@ -36,6 +41,7 @@ class CourseController extends Controller
 //
         return view('courses.index')
             ->with([
+//                'courses' => ,$courses
                 'objs' => $objs,
 //                'lessons' => $lessons,
 //                'categories' => $categories,

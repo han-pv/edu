@@ -11,18 +11,8 @@
             @endforeach
         </div>
     </div>
-{{--    <a href="/students?category={{ $category->id }}" {{ $category->id == $f_category ? 'selected':'' }}>--}}
-{{--        {{ $category->name }}--}}
-{{--    </a>--}}
-
-
-    {{--    @foreach($categories as $category)--}}
-{{--        {{$category->name}}--}}
-{{--    @endforeach--}}
-{{--    --}}
 
     <form class="row d-flex text-white-50" action="{{ url()->current() }}" method="get">
-
         <div class="col-3">
             <label for="course" class="fw-bold mb-2">Course:</label>
             <select class="border rounded w-100 py-2" id="course" name="course">
@@ -62,7 +52,7 @@
 
         <div class="col-2">
             <label for="age" class="fw-bold mb-2">Age: </label>
-                <input type="text" class="border rounded w-100 py-2" id="age" name="age" placeholder="18-35">
+                <input type="text" class="border rounded w-100 py-2" id="age" name="age" placeholder="16-35">
         </div>
 
         <div class="col-2">

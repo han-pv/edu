@@ -16,6 +16,10 @@ class Teacher extends Model
     public $timestamps = false;
 
 
+    public function Category()
+    {
+        return $this->belongsTo(Category::class);
+    }
     public function Course()
     {
         return $this->belongsTo(Course::class);

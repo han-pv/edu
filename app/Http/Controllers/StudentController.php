@@ -21,7 +21,7 @@ class StudentController extends Controller
             'teacher' => 'nullable|integer|min:1',
             'gender' => 'nullable|string|max:30',
             'age' => 'nullable|integer|min:1',
-            'gradeLevel' => 'nullable|integer|min:1',
+            'gradeLevel' => 'nullable|string|max:30',
         ]);
 
         $f_category = $request->has('category') ? $request->category : null;
@@ -30,7 +30,7 @@ class StudentController extends Controller
         $f_lesson = $request->has('lesson') ? $request->lesson : null;
         $f_teacher = $request->has('teacher') ? $request->teacher : null;
         $f_gender = $request->has('gender') ? $request->gender : null;
-        $f_age = $request->has('brand') ? $request->age : null;
+        $f_age = $request->has('age') ? $request->age : null;
         $f_gradeLevel = $request->has('gradeLevel') ? $request->gradeLevel : null;
 
 //        return $f_course;
@@ -64,7 +64,7 @@ class StudentController extends Controller
                 return $query->where('gender', $f_gender);
             })
             ->when(isset($f_age), function ($query) use ($f_age) {
-                return $query->where('lesson_id', $f_age);
+                return $query->where('age', $f_age);
             })
             ->when(isset($f_gradeLevel), function ($query) use ($f_gradeLevel) {
                 return $query->where('gradeLevel', $f_gradeLevel);
@@ -83,7 +83,7 @@ class StudentController extends Controller
             ->with('category', 'course', 'teacher')
             ->paginate(40)
             ->withQueryString();
-//        return $objs;
+//        return $f_gradeLevel;
 
         $categories = Category::withCount('students')
             ->get();

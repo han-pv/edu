@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -12,7 +13,6 @@ Route::controller(CourseController::class)
     ->name('courses.')
     ->group(function () {
         Route::get('', 'index')->name('index');
-        Route::get('/{id}', 'show')->name('show')->where('id', '[0-9]+');
     });
 
 Route::controller(StudentController::class)
@@ -22,4 +22,15 @@ Route::controller(StudentController::class)
         Route::get('', 'index')->name('index');
         Route::get('/{id}', 'show')->name('show')->where('id', '[0-9]+');
     });
+
+
+Route::controller(TeacherController::class)
+    ->prefix('teachers')
+    ->name('teachers.')
+    ->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::get('/{id}', 'show')->name('show')->where('id', '[0-9]+');
+    });
+
+
 

@@ -3,36 +3,29 @@
     Home
 @endsection
 @section('content')
-    <div>
-        <div class="h4 text-primary mb-3">
-            BRANDS
-        </div>
+    <div class="bg-dark">
         <div class="container-xl">
-            <div class="row row-cols-7 g-4">
-                @foreach($categories as $category)
-                    <div class="col">
-                        <div class="border rounded-2 p-2 h-100">
-                            <a href="{{ route('courses.index', ['category' => $category->id]) }}">
-                                <div class="h6">
-                                    {{ $category->name }}
-
-                                    {{--                                <span class="badge bg-warning-subtle text-warning-emphasis rounded-pill">--}}
-                                    {{--                                    @if($category->courses->isNotEmpty())--}}
-                                    {{--                                        {{ $category->courses->first()->name }}--}}
-                                    {{--                                    @endif--}}
-                                    {{--                                        @foreach($category->courses as $courses)--}}
-                                    {{--                                            {{ $courses->name }}--}}
-                                    {{--                                            <br>--}}
-                                    {{--                                        @endforeach--}}
-                                    {{--                                </span>--}}
-                                </div>
+            <div class="col-12 py-5">
+                <div class="row d-flex text-center g-4">
+                    @foreach($categories as $category)
+                        <div class="col">
+                            <a class="h5 mt-auto w-100 h-100 fw-bold btn text-decoration-none btn-success }}" href="{{ route('courses.index', ['category' => $category->id]) }}">
+                                {{ $category->name }}
                             </a>
-
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
+    </div>
 
+    <div class="container-xl">
+        <div class="row my-3 g-5">
+            @forelse($objs as $obj)
+                @include('app.course')
+            @empty
+                <div class="display-3 text-center mt-4">Course not found</div>
+            @endforelse
+        </div>
     </div>
 @endsection
