@@ -3,11 +3,6 @@
     Home
 @endsection
 @section('content')
-    <div>
-        @foreach($groups as $group)
-            <p>{{ $group->name }} - {{ $group->students_count }} öğrenci</p>
-        @endforeach
-    </div>
     <div class="bg-dark">
         <div class="container-xl">
             <div class="col-12 py-5">
