@@ -3,6 +3,7 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -30,6 +31,13 @@ Route::controller(TeacherController::class)
     ->group(function () {
         Route::get('', 'index')->name('index');
         Route::get('/{id}', 'show')->name('show')->where('id', '[0-9]+');
+    });
+
+Route::controller(PostController::class)
+    ->prefix('posts')
+    ->name('posts.')
+    ->group(function () {
+        Route::get('', 'index')->name('index');
     });
 
 
