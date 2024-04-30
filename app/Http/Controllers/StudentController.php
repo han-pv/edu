@@ -58,17 +58,6 @@ class StudentController extends Controller
             ->when(isset($f_gradeLevel), function ($query) use ($f_gradeLevel) {
                 return $query->where('gradeLevel', $f_gradeLevel);
             })
-            ->when(isset($f_gradeLevel), function ($query) use ($f_gradeLevel) {
-                switch ($f_gradeLevel) {
-                    case 'Excellent':
-                        return $query->whereBetween('gradeLevel', [8, 10]);
-                    case 'Average':
-                        return $query->whereBetween('gradeLevel', [5, 7]);
-                    case 'Poor':
-                        return $query->where('gradeLevel', '<=', 5);
-                    default:
-                        return $query;
-            }})
             ->with('category', 'course', 'teacher')
             ->paginate(40)
             ->withQueryString();
@@ -107,6 +96,7 @@ class StudentController extends Controller
     {
         $obj = Student::findOrFail($id);
 //        return $obj;
+
         return view('courses.show')
             ->with([
                 'obj' => $obj,

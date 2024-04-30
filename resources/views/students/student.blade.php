@@ -63,7 +63,7 @@
                     <span class="{{ $obj->gradeLevel == $f_gradeLevel ? 'mark':'' }}">
                 {{ $obj->gradeLevel }}
                 <span class="text-success">
-                    {{ $obj->gradeLevel >= 8 ? '| Excelent':'' }}
+                    {{ $obj->gradeLevel >= 8 ? '| Excellent':'' }}
                 </span>
                 <span class="text-primary">
                     {{ $obj->gradeLevel >= 4 && $obj->gradeLevel < 8 ? '| Average':'' }}

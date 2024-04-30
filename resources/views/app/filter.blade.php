@@ -6,14 +6,13 @@
                 <a class="h5 mt-auto w-100 h-100 fw-bold btn text-decoration-none {{ $category->id == $f_category ? 'btn-secondary':'btn-success' }}" href="/students?category={{ $category->id }}">
                 {{ $category->name }}
                 </a>
-
             </div>
             @endforeach
         </div>
     </div>
 
     <form class="row d-flex text-white-50" action="{{ url()->current() }}" method="get">
-        <div class="col-3">
+        <div class="col-2">
             <label for="course" class="fw-bold mb-2">Course:</label>
             <select class="border rounded w-100 py-2" id="course" name="course">
                 <option value>-</option>
@@ -38,24 +37,36 @@
         </div>
 
         <div class="col-2">
-            <label for="gender" class="fw-bold mb-2">Gender:</label>
-            <select class="border rounded w-100 py-2" id="gender" name="gender">
+            <label for="teacher" class="fw-bold mb-2">Teacher:</label>
+            <select class="border rounded w-100 py-2" id="teacher" name="teacher">
                 <option value>-</option>
-                    <option value="Female"  {{ $f_gender == 'Female' ? 'selected':'' }}>
-                        Female
+                @foreach($teachers as $teacher)
+                    <option value="{{ $teacher->id }}" {{ $teacher->id == $f_teacher ? 'selected':'' }}>
+                        {{ $teacher->name }}  {{ $teacher->surname }}
                     </option>
-                    <option value="Male"  {{ $f_gender == 'Male' ? 'selected':'' }}>
-                        Male
-                    </option>
+                @endforeach
             </select>
         </div>
 
         <div class="col-2">
+            <label for="gender" class="fw-bold mb-2">Gender:</label>
+            <select class="border rounded w-100 py-2" id="gender" name="gender">
+                <option value>-</option>
+                <option value="Female"  {{ $f_gender == 'Female' ? 'selected':'' }}>
+                    Female
+                </option>
+                <option value="Male"  {{ $f_gender == 'Male' ? 'selected':'' }}>
+                    Male
+                </option>
+            </select>
+        </div>
+
+        <div class="col-1">
             <label for="age" class="fw-bold mb-2">Age: </label>
                 <input type="text" class="border rounded w-100 py-2" id="age" name="age" placeholder="16-35">
         </div>
 
-        <div class="col-2">
+        <div class="col-2 ms-auto">
             <div class=""> </div>
             <div class="row g-2 mt-4">
                 <div class="col h-100">

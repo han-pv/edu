@@ -10,7 +10,7 @@
                     @foreach($categories as $category)
                         <div class="col">
                             <a class="h5 mt-auto w-100 h-100 fw-bold btn text-decoration-none btn-success text-center}}" href="{{ route('courses.index', ['category' => $category->id]) }}">
-                                {{ $category->name }} <br> <span class="rounded bg-warning text-white px-1">{{$category->students_count}}</span>
+                                {{ $category->name }} <br> <span class="rounded bg-warning text-white px-1"><i class="bi bi-people-fill"></i> {{$category->students_count}}</span>
                             </a>
                         </div>
                     @endforeach
@@ -20,12 +20,18 @@
     </div>
 
     <div class="container-xl">
-        <div class="row my-3 g-5">
-            @forelse($objs as $obj)
+        <a class="text-decoration-none link-success link-offset-2-hover" href="{{ route('courses.index')}}">
+            <div class="h3 fw-bold mt-5">
+                Courses
+            </div>
+        </a>
+
+        <div class="row mb-5 mt-3 g-4">
+            @foreach($objs as $obj)
                 @include('app.course')
-            @empty
-                <div class="display-3 text-center mt-4">Course not found</div>
-            @endforelse
+            @endforeach
         </div>
     </div>
+
+
 @endsection

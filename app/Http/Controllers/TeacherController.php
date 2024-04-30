@@ -13,22 +13,13 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        $teachers = Teacher::with('Category', 'Course')
+        $teachers = Teacher::with('Category')
             ->get();
-
-        $lessons = Lesson::with('Course')
-            ->get();
-
-        $groups = Group::with('Course')
-            ->get();
-
 
 
         return view('teachers.index')
             ->with([
                 'teachers' => $teachers,
-                'lessons' => $lessons,
-                'groups' => $groups,
             ]);
     }
 }
